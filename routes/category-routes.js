@@ -38,6 +38,8 @@ router.put('/categories/:id', (req, res) => {
 router.delete('/categories/:id', (req, res) => {
   // delete a category by its `id` value
   Category.destroy({ where: { id: req.params.id }})
+    .then(() => res.sendStatus(200))
+    .catch(err => console.log(err))
 })
 
 module.exports = router
